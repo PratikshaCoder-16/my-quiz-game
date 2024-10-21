@@ -129,3 +129,4 @@ function refreshPage() {
     document.getElementById("password").value = "";
     document.getElementById("branch").value = ""; // Clear branch selection
 }
+
