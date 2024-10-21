@@ -1,168 +1,136 @@
 
 const questions = {
     easy: [
-        { question: "1. What is the keyword used to define a class in Java?", answer: "class", type: "mcq", choices: ["class", "object", "method", "variable"] },
+        { question: "1. What is the keyword used to define a class in Java?", answer: "class", type: "mcq", choices: ["class", "define", "create", "initiate"] },
         { question: "2. Which data structure uses LIFO?", answer: "stack", type: "mcq", choices: ["queue", "stack", "array", "list"] },
-        { question: "3. What does OS stand for?", answer: "operating system", type: "mcq", choices: ["open source", "operating system", "output system", "online system"] },
-        { question: "4. What is the default value of an int variable in Java?", answer: "0", type: "mcq", choices: ["0", "1", "null", "undefined"] },
-        { question: "5. Which symbol is used for comments in C?", answer: "//", type: "mcq", choices: ["//", "#", "/*", "<!--"] },
+        { question: "3. What does OS stand for?", answer: "operating system", type: "mcq", choices: ["original system", "operating system", "open source", "online service"] },
+        { question: "4. What is the default value of an int variable in Java?", answer: "0", type: "mcq", choices: ["1", "0", "-1", "null"] },
+        { question: "5. Which symbol is used for comments in C?", answer: "//", type: "mcq", choices: ["//", "/*", "#", "--"] },
         { question: "6. What is the time complexity of binary search?", answer: "O(log n)", type: "mcq", choices: ["O(n)", "O(n^2)", "O(log n)", "O(1)"] },
-        { question: "7. In C++, what is a pointer?", answer: "a variable that stores a memory address", type: "one-word" },
-        { question: "8. What does API stand for?", answer: "Application Programming Interface", type: "one-word" },
+        { question: "7. In C++, what is a pointer?", answer: "a variable that stores a memory address", type: "mcq", choices: ["a variable", "a function", "an object", "a class"] },
+        { question: "8. What does API stand for?", answer: "Application Programming Interface", type: "mcq", choices: ["Application Programming Interface", "Application Program Interface", "Applied Programming Interface", "Application Product Interface"] },
         { question: "9. Which of the following is a cloud computing service?", answer: "All of the above", type: "mcq", choices: ["IaaS", "PaaS", "SaaS", "All of the above"] },
-        { question: "10. What is the main function in a C program?", answer: "main", type: "one-word" }
+        { question: "10. What is the main function in a C program?", answer: "main", type: "mcq", choices: ["start", "main", "init", "run"] }
     ],
     medium: [
-        { question: "11. In Java, what is the difference between == and equals()?", answer: "== checks reference, equals() checks value", type: "one-word" },
-        { question: "12. Explain the concept of encapsulation.", answer: "hiding data and methods within a class", type: "one-word" },
-        { question: "13. What is the purpose of the virtual keyword in C++?", answer: "to allow method overriding", type: "one-word" },
-        { question: "14. In data structures, what is a binary tree?", answer: "a tree where each node has at most two children", type: "one-word" },
-        { question: "15. What is a deadlock in operating systems?", answer: "a situation where two or more processes are blocked forever", type: "one-word" },
-        { question: "16. What is the time complexity of the bubble sort algorithm?", answer: "O(n^2)", type: "one-word" },
-        { question: "17. What is the main advantage of using linked lists over arrays?", answer: "dynamic size", type: "one-word" },
-        { question: "18. In Java, what is garbage collection?", answer: "automatic memory management", type: "one-word" },
-        { question: "19. What is the difference between TCP and UDP?", answer: "TCP is connection-oriented, UDP is connectionless", type: "one-word" },
-        { question: "20. What is an abstract class in Java?", answer: "a class that cannot be instantiated", type: "one-word" }
+        { question: "11. In Java, what is the difference between == and equals()?", answer: "== checks reference, equals() checks value", type: "mcq", choices: ["== checks value, equals() checks reference", "both are the same", "== checks reference, equals() checks value", "none of the above"] },
+        { question: "12. Explain the concept of encapsulation.", answer: "hiding data and methods within a class", type: "mcq", choices: ["storing data", "hiding data and methods within a class", "using interfaces", "none of the above"] },
+        { question: "13. What is the purpose of the virtual keyword in C++?", answer: "to allow method overriding", type: "mcq", choices: ["to create a virtual machine", "to allow method overriding", "to declare variables", "none of the above"] },
+        { question: "14. In data structures, what is a binary tree?", answer: "a tree where each node has at most two children", type: "mcq", choices: ["a linear structure", "a tree where each node has at most two children", "a graph", "none of the above"] },
+        { question: "15. What is a deadlock in operating systems?", answer: "a situation where two or more processes are blocked forever", type: "mcq", choices: ["a system failure", "a process termination", "a situation where two or more processes are blocked forever", "none of the above"] }
     ],
     hard: [
-        { question: "21. What is the time complexity of quicksort?", answer: "O(n log n)", type: "one-word" },
-        { question: "22. What is a race condition?", answer: "a situation where two threads access shared data at the same time", type: "one-word" },
-        { question: "23. What is the difference between a process and a thread?", answer: "a process is an independent program, while a thread is a smaller unit of a process", type: "one-word" },
-        { question: "24. What is polymorphism in OOP?", answer: "the ability to present the same interface for different data types", type: "one-word" },
-        { question: "25. What is a stack overflow?", answer: "when a stack pointer exceeds the stack bound", type: "one-word" }
+        { question: "16. What is the time complexity of quicksort in the average case?", answer: "O(n log n)", type: "mcq", choices: ["O(n^2)", "O(n log n)", "O(n)", "O(log n)"] },
+        { question: "17. Explain the concept of polymorphism in OOP.", answer: "ability to take many forms", type: "mcq", choices: ["inheritance", "ability to take many forms", "encapsulation", "abstraction"] },
+        { question: "18. What is a race condition?", answer: "when two or more processes access shared data and try to change it at the same time", type: "mcq", choices: ["when processes are terminated", "when two or more processes access shared data and try to change it at the same time", "none of the above", "all of the above"] },
+        { question: "19. What is the purpose of a mutex?", answer: "to prevent race conditions", type: "mcq", choices: ["to manage memory", "to prevent race conditions", "to lock resources", "none of the above"] },
+        { question: "20. In database systems, what does ACID stand for?", answer: "Atomicity, Consistency, Isolation, Durability", type: "mcq", choices: ["Atomicity, Consistency, Isolation, Durability", "Accuracy, Consistency, Isolation, Durability", "Atomicity, Clarity, Isolation, Durability", "none of the above"] }
     ]
 };
 
-let currentLevel = 0; // Tracks the current level (0 for easy, 1 for medium, 2 for hard)
-let scores = { easy: 0, medium: 0, hard: 0 }; // Store scores for each level
-let totalScore = 0; // Store total score
+let currentLevel = 0; // 0 for easy, 1 for medium, 2 for hard
+let scores = [0, 0, 0]; // Array to hold scores for each level
+let currentUsername = '';
 
-// Shuffle questions for random selection
-function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Simple validation for demo purposes
+    if (username && password.length >= 6) {
+        currentUsername = username;
+        document.getElementById('login-section').style.display = 'none';
+        document.getElementById('game-info').style.display = 'block';
+    } else {
+        document.getElementById('login-error').style.display = 'block';
     }
+    return false; // Prevent form submission
 }
 
-// Load quiz questions for the current level
+function startGame() {
+    currentLevel = 0; // Reset to first level
+    scores = [0, 0, 0]; // Reset scores
+    document.getElementById('game-info').style.display = 'none';
+    document.getElementById('quiz-section').style.display = 'block';
+    loadQuestions();
+}
+
 function loadQuestions() {
-    let levelQuestions;
-    if (currentLevel === 0) {
-        levelQuestions = questions.easy;
-        document.getElementById('level-title').textContent = "Level: Easy";
-    } else if (currentLevel === 1) {
-        levelQuestions = questions.medium;
-        document.getElementById('level-title').textContent = "Level: Medium";
-    } else if (currentLevel === 2) {
-        levelQuestions = questions.hard;
-        document.getElementById('level-title').textContent = "Level: Hard";
-    }
-
-    shuffle(levelQuestions); // Shuffle questions
-
     const questionContainer = document.getElementById('questions');
     questionContainer.innerHTML = ''; // Clear previous questions
+    const levelKeys = ['easy', 'medium', 'hard'];
+    const selectedQuestions = questions[levelKeys[currentLevel]].slice(0, 10);
 
-    const selectedQuestions = levelQuestions.slice(0, currentLevel === 2 ? 5 : 10); // Limit to 10 or 5 questions based on level
-
+    document.getElementById('level-title').innerText = `Level: ${levelKeys[currentLevel]}`;
+    
     selectedQuestions.forEach((q, index) => {
         const label = document.createElement('label');
         label.innerHTML = q.question;
         questionContainer.appendChild(label);
-
-        if (q.type === 'mcq') {
-            q.choices.forEach(choice => {
-                const choiceLabel = document.createElement('label');
-                const input = document.createElement('input');
-                input.type = 'radio';
-                input.name = 'q' + index; // Group radio buttons by question
-                input.value = choice;
-                choiceLabel.appendChild(input);
-                choiceLabel.appendChild(document.createTextNode(choice));
-                questionContainer.appendChild(choiceLabel);
-                questionContainer.appendChild(document.createElement('br'));
-            });
-        } else {
+        
+        // Create radio buttons for choices
+        q.choices.forEach(choice => {
+            const choiceLabel = document.createElement('label');
             const input = document.createElement('input');
-            input.type = 'text';
-            input.id = 'q' + index;
-            questionContainer.appendChild(input);
+            input.type = 'radio';
+            input.name = `q${index}`; // Group radio buttons by question
+            input.value = choice;
+            choiceLabel.appendChild(input);
+            choiceLabel.appendChild(document.createTextNode(choice));
+            questionContainer.appendChild(choiceLabel);
             questionContainer.appendChild(document.createElement('br'));
-        }
+        });
     });
 }
 
-// Check answers and provide feedback
 function checkAnswers() {
-    const totalQuestions = currentLevel === 2 ? 5 : 10; // Total questions based on level
-    let levelScore = 0;
+    const totalQuestions = currentLevel === 2 ? 5 : 10; // Hard level has 5 questions
+    const levelKeys = ['easy', 'medium', 'hard'];
 
     for (let i = 0; i < totalQuestions; i++) {
-        let question = questions.easy.concat(questions.medium, questions.hard)[i + currentLevel * (currentLevel === 2 ? 5 : 10)];
+        const question = questions[levelKeys[currentLevel]][i];
 
-        if (question.type === 'mcq') {
-            const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
-            if (selectedOption && selectedOption.value === question.answer) {
-                levelScore++;
-            }
-        } else {
-            const userAnswer = document.getElementById('q' + i).value.toLowerCase();
-            if (userAnswer === question.answer.toLowerCase()) {
-                levelScore++;
-            }
+        const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selectedOption && selectedOption.value === question.answer) {
+            scores[currentLevel]++; // Increment score for correct answer
         }
     }
 
-    scores[Object.keys(scores)[currentLevel]] = levelScore; // Store the score for the current level
-    totalScore += levelScore; // Update total score
-
-    let feedbackMessage = "";
-    if (currentLevel === 2) {
-        feedbackMessage = `Your total score: ${totalScore}. `;
-        feedbackMessage += `You scored ${scores.easy} in Easy, ${scores.medium} in Medium, and ${scores.hard} in Hard. `;
-        feedbackMessage += getAppreciation(totalScore);
-        feedbackMessage += " Do you want to restart the quiz?";
-        document.getElementById('previous-score').textContent = feedbackMessage;
-        document.getElementById('previous-score').style.display = 'block';
-        document.getElementById('quiz-section').style.display = 'none';
-        return;
-    } else {
-        feedbackMessage = `You scored ${levelScore} out of ${totalQuestions} in this level.`;
-        alert(feedbackMessage);
-    }
-
-    currentLevel++; // Move to the next level
-    loadQuestions(); // Load questions for the next level
+    displayResults();
 }
 
-// Get appreciation based on total score
-function getAppreciation(score) {
-    if (score === 25) {
-        return "Outstanding performance! You're a programming genius!";
-    } else if (score >= 20) {
-        return "Great job! You have a solid understanding of programming.";
-    } else if (score >= 15) {
-        return "Good effort! You have a good grasp of the concepts.";
+function displayResults() {
+    const totalScore = scores.reduce((a, b) => a + b, 0); // Total score from all levels
+    let feedbackMessage = '';
+
+    if (totalScore >= 25) {
+        feedbackMessage = "Amazing! You're a programming genius!";
+    } else if (totalScore >= 15) {
+        feedbackMessage = "Great job! You have a solid understanding of programming!";
     } else {
-        return "Keep trying! Practice makes perfect!";
+        feedbackMessage = "Don't worry! Keep practicing, and you'll improve!";
     }
+
+    document.getElementById('quiz-section').innerHTML = `
+        <h2>Your Results</h2>
+        <p>Level 1 (Easy) Score: ${scores[0]}</p>
+        <p>Level 2 (Medium) Score: ${scores[1]}</p>
+        <p>Level 3 (Hard) Score: ${scores[2]}</p>
+        <p>Total Score: ${totalScore}</p>
+        <p>${feedbackMessage}</p>
+        <button onclick="restartQuiz()">Restart Quiz</button>
+        <button onclick="closeGame()">Close Game</button>
+    `;
 }
 
-// Restart the quiz
 function restartQuiz() {
-    currentLevel = 0; // Reset level
-    scores = { easy: 0, medium: 0, hard: 0 }; // Reset level scores
-    totalScore = 0; // Reset total score
-    document.getElementById('previous-score').style.display = 'none';
-    loadQuestions(); // Load first level questions
+    document.getElementById('quiz-section').style.display = 'none';
+    document.getElementById('game-info').style.display = 'block'; // Return to game info
 }
 
-// Show game info
-function showGameInfo() {
-    document.getElementById('game-info').style.display = 'block';
-    document.getElementById('login').style.display = 'none';
+function closeGame() {
+    window.location.reload(); // Reload the page to go back to login
 }
 
-// Initialize the quiz
-loadQuestions(); // Load first level questions
+
+
