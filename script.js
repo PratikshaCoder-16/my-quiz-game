@@ -99,17 +99,24 @@ function checkAnswers() {
     let levelScore = 0;
 
     for (let i = 0; i < totalQuestions; i++) {
-        let question = questions.easy.concat(questions.medium, questions.hard)[i + currentLevel * (currentLevel === 2 ? 5 : 10)];
+        let question;
+        if (currentLevel === 0) {
+            question = questions.easy[i];
+        } else if (currentLevel === 1) {
+            question = questions.medium[i];
+        } else {
+            question = questions.hard[i];
+        }
 
         if (question.type === 'mcq') {
             const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
             if (selectedOption && selectedOption.value === question.answer) {
-                levelScore++;
+                levelScore++; // Increment level score for correct answer
             }
         } else {
             const userAnswer = document.getElementById('q' + i).value.toLowerCase();
             if (userAnswer === question.answer.toLowerCase()) {
-                levelScore++;
+                levelScore++; // Increment level score for correct answer
             }
         }
     }
@@ -155,13 +162,8 @@ function restartQuiz() {
     scores = { easy: 0, medium: 0, hard: 0 }; // Reset level scores
     totalScore = 0; // Reset total score
     document.getElementById('previous-score').style.display = 'none';
+    document.getElementById('quiz-section').style.display = 'block'; // Show quiz section again
     loadQuestions(); // Load first level questions
-}
-
-// Show game info
-function showGameInfo() {
-    document.getElementById('game-info').style.display = 'block';
-    document.getElementById('login').style.display = 'none';
 }
 
 // Initialize the quiz
