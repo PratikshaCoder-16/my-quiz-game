@@ -4,21 +4,31 @@ const questions = {
         { question: "2. Which data structure uses LIFO?", choices: ["queue", "stack", "array"], answer: "stack", type: "mcq" },
         { question: "3. What does OS stand for?", choices: ["Operating System", "Object System"], answer: "Operating System", type: "mcq" },
         { question: "4. What is the default value of an int variable in Java?", choices: ["0", "1", "-1"], answer: "0", type: "mcq" },
-        { question: "5. Which symbol is used for comments in C?", choices: ["//", "#", "/*"], answer: "//", type: "mcq" }
+        { question: "5. Which symbol is used for comments in C?", choices: ["//", "#", "/*"], answer: "//", type: "mcq" },
+        { question: "6. Which of the following is a data type?", choices: ["int", "function", "class"], answer: "int", type: "mcq" },
+        { question: "7. What does HTML stand for?", choices: ["Hyper Text Markup Language", "High Text Markup Language"], answer: "Hyper Text Markup Language", type: "mcq" },
+        { question: "8. Which language is primarily used for web development?", choices: ["Python", "JavaScript", "C++"], answer: "JavaScript", type: "mcq" },
+        { question: "9. What is the output of console.log(2 + '2')?", choices: ["4", "22", "Error"], answer: "22", type: "mcq" },
+        { question: "10. Which operator is used to assign a value?", choices: ["=", "==", ":="], answer: "=", type: "mcq" }
     ],
     medium: [
-        { question: "6. What is the time complexity of binary search?", choices: ["O(n)", "O(log n)", "O(n^2)"], answer: "O(log n)", type: "mcq" },
-        { question: "7. In C++, what is a pointer?", choices: ["a variable that stores a memory address", "a data type", "a function"], answer: "a variable that stores a memory address", type: "mcq" },
-        { question: "8. What does API stand for?", choices: ["Application Programming Interface", "Application Program Integration"], answer: "Application Programming Interface", type: "mcq" },
-        { question: "9. Which of the following is a cloud computing service?", choices: ["IaaS", "PaaS", "SaaS", "All of the above"], answer: "All of the above", type: "mcq" },
-        { question: "10. What is the main function in a C program?", choices: ["start", "begin", "main"], answer: "main", type: "mcq" }
+        { question: "11. What is the time complexity of binary search?", choices: ["O(n)", "O(log n)", "O(n^2)"], answer: "O(log n)", type: "mcq" },
+        { question: "12. In C++, what is a pointer?", choices: ["a variable that stores a memory address", "a data type", "a function"], answer: "a variable that stores a memory address", type: "mcq" },
+        { question: "13. What does API stand for?", choices: ["Application Programming Interface", "Application Program Integration"], answer: "Application Programming Interface", type: "mcq" },
+        { question: "14. Which of the following is a cloud computing service?", choices: ["IaaS", "PaaS", "SaaS", "All of the above"], answer: "All of the above", type: "mcq" },
+        { question: "15. What is the main function in a C program?", choices: ["start", "begin", "main"], answer: "main", type: "mcq" },
+        { question: "16. What is recursion?", choices: ["A function that calls itself", "A loop", "A data structure"], answer: "A function that calls itself", type: "mcq" },
+        { question: "17. What is encapsulation in OOP?", choices: ["Data hiding", "Inheritance", "Polymorphism"], answer: "Data hiding", type: "mcq" },
+        { question: "18. What does SQL stand for?", choices: ["Structured Query Language", "Simple Query Language"], answer: "Structured Query Language", type: "mcq" },
+        { question: "19. Which data structure uses FIFO?", choices: ["stack", "queue", "array"], answer: "queue", type: "mcq" },
+        { question: "20. What is a hash table?", choices: ["A data structure for storing key-value pairs", "A type of loop", "An array"], answer: "A data structure for storing key-value pairs", type: "mcq" }
     ],
     hard: [
-        { question: "11. In Java, what is the difference between == and equals()?", choices: ["== checks reference, equals() checks value", "No difference", "equals() checks reference, == checks value"], answer: "== checks reference, equals() checks value", type: "mcq" },
-        { question: "12. Explain the concept of encapsulation.", choices: ["hiding data and methods within a class", "public data access", "data abstraction"], answer: "hiding data and methods within a class", type: "mcq" },
-        { question: "13. What is the purpose of the virtual keyword in C++?", choices: ["to allow method overriding", "to make a method static", "to create an instance"], answer: "to allow method overriding", type: "mcq" },
-        { question: "14. In data structures, what is a binary tree?", choices: ["a tree where each node has at most two children", "a circular list", "a type of stack"], answer: "a tree where each node has at most two children", type: "mcq" },
-        { question: "15. What is a deadlock in operating systems?", choices: ["a situation where two processes wait indefinitely", "a high CPU usage", "a fast processing issue"], answer: "a situation where two processes wait indefinitely", type: "mcq" }
+        { question: "21. In Java, what is the difference between == and equals()?", choices: ["== checks reference, equals() checks value", "No difference", "equals() checks reference, == checks value"], answer: "== checks reference, equals() checks value", type: "mcq" },
+        { question: "22. Explain the concept of encapsulation.", choices: ["hiding data and methods within a class", "public data access", "data abstraction"], answer: "hiding data and methods within a class", type: "mcq" },
+        { question: "23. What is the purpose of the virtual keyword in C++?", choices: ["to allow method overriding", "to make a method static", "to create an instance"], answer: "to allow method overriding", type: "mcq" },
+        { question: "24. In data structures, what is a binary tree?", choices: ["a tree where each node has at most two children", "a circular list", "a type of stack"], answer: "a tree where each node has at most two children", type: "mcq" },
+        { question: "25. What is a deadlock in operating systems?", choices: ["a situation where two processes wait indefinitely", "a high CPU usage", "a fast processing issue"], answer: "a situation where two processes wait indefinitely", type: "mcq" }
     ]
 };
 
@@ -78,13 +88,18 @@ function startQuiz() {
     const password = document.getElementById("password").value;
     branch = document.getElementById("branch").value;
 
-    if (userId && password && branch) {
+    if (validateLogin(userId, password)) {
         document.getElementById("login").style.display = "none"; // Hide login
         document.getElementById("quiz-section").style.display = "block"; // Show quiz
         loadQuestions(currentLevel); // Load questions for the first level
     } else {
-        alert("Please fill in all fields.");
+        alert("Please ensure that User ID and Password meet the constraints.");
     }
+}
+
+// Validate login input constraints
+function validateLogin(userId, password) {
+    return userId.length >= 4 && password.length >= 6; // Basic constraints
 }
 
 // Check answers and calculate score
@@ -101,9 +116,10 @@ function checkAnswers() {
     });
 
     // Display the score
-    previousScore = score; // Store the score for the next level
+    previousScore += score; // Add to previous score
+    const motivationalMessage = getMotivationalMessage(previousScore);
     const resultDiv = document.getElementById("result");
-    resultDiv.innerHTML = `Your Score: ${score}/${allQuestions.length}`;
+    resultDiv.innerHTML = `Your Score: ${score}/${allQuestions.length}<br>${motivationalMessage}`;
     document.getElementById("previous-score").innerHTML = `Previous Score: ${previousScore}`;
     document.getElementById("previous-score").style.display = "block";
 
@@ -112,7 +128,20 @@ function checkAnswers() {
         loadQuestions(currentLevel); // Load next level questions
     } else {
         alert("Quiz completed!");
-        refreshPage(); // Reset for the next user
+        document.getElementById("quiz-section").style.display = "none"; // Hide quiz section
+    }
+}
+
+// Get a motivational message based on the score
+function getMotivationalMessage(score) {
+    if (score === 30) {
+        return "Excellent! You're a programming wizard!";
+    } else if (score >= 20) {
+        return "Great job! Keep up the good work!";
+    } else if (score >= 10) {
+        return "Good effort! Keep practicing!";
+    } else {
+        return "Don't give up! Keep trying!";
     }
 }
 
@@ -130,3 +159,14 @@ function refreshPage() {
     document.getElementById("branch").value = ""; // Clear branch selection
 }
 
+// Go back to login from game info
+function goBackToLogin() {
+    document.getElementById("game-info").style.display = "none"; // Hide game info
+    document.getElementById("login").style.display = "block"; // Show login
+}
+
+// Show game info
+function showGameInfo() {
+    document.getElementById("game-info").style.display = "block"; // Show game info
+    document.getElementById("login").style.display = "none"; // Hide login
+}
