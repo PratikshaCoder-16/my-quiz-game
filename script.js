@@ -1,122 +1,131 @@
 const questions = {
     easy: [
-        { question: "1. What is the keyword used to define a class in Java?", choices: ["class", "object", "function", "method"], answer: "class" },
-        { question: "2. Which data structure uses LIFO?", choices: ["stack", "queue", "tree", "graph"], answer: "stack" },
-        { question: "3. What does OS stand for?", choices: ["Operating System", "Open Source", "Online Service", "Optical Storage"], answer: "Operating System" },
-        { question: "4. What is the default value of an int variable in Java?", choices: ["0", "null", "undefined", "1"], answer: "0" },
-        { question: "5. Which symbol is used for comments in C?", choices: ["//", "/* */", "#", "--"], answer: "//" },
-        { question: "6. What is the time complexity of binary search?", choices: ["O(n)", "O(log n)", "O(n^2)", "O(1)"], answer: "O(log n)" },
-        { question: "7. What does API stand for?", choices: ["Application Programming Interface", "Advanced Programming Interface", "Application Protocol Interface", "Application Procedure Interface"], answer: "Application Programming Interface" },
-        { question: "8. What is the main function in a C program?", choices: ["main", "start", "init", "run"], answer: "main" },
-        { question: "9. What is a pointer?", choices: ["A variable that stores a memory address", "A data structure", "A function", "An object"], answer: "A variable that stores a memory address" },
-        { question: "10. What does HTML stand for?", choices: ["HyperText Markup Language", "HighText Machine Language", "Hyperloop Machine Language", "None of the above"], answer: "HyperText Markup Language" }
+        { question: "1. What is the keyword used to define a class in Java?", choices: ["class", "def", "function"], answer: "class", type: "mcq" },
+        { question: "2. Which data structure uses LIFO?", choices: ["queue", "stack", "array"], answer: "stack", type: "mcq" },
+        { question: "3. What does OS stand for?", choices: ["Operating System", "Object System"], answer: "Operating System", type: "mcq" },
+        { question: "4. What is the default value of an int variable in Java?", choices: ["0", "1", "-1"], answer: "0", type: "mcq" },
+        { question: "5. Which symbol is used for comments in C?", choices: ["//", "#", "/*"], answer: "//", type: "mcq" }
     ],
     medium: [
-        { question: "1. What is polymorphism in Object-Oriented Programming?", choices: ["Ability of an object to take many forms", "Object inheritance", "Data encapsulation", "Class abstraction"], answer: "Ability of an object to take many forms" },
-        { question: "2. What is a deadlock in operating systems?", choices: ["A situation where processes block each other", "A race condition", "An infinite loop", "A memory leak"], answer: "A situation where processes block each other" },
-        { question: "3. What is the default scope of a variable in JavaScript?", choices: ["Global", "Local", "Block", "Module"], answer: "Global" },
-        { question: "4. What is recursion?", choices: ["A function calling itself", "A loop repeating itself", "A process calling another", "A data structure"], answer: "A function calling itself" },
-        { question: "5. What is abstraction in OOP?", choices: ["Hiding implementation details", "Inheriting classes", "Function overloading", "Class extension"], answer: "Hiding implementation details" },
-        { question: "6. What is a virtual function?", choices: ["A function that can be overridden", "A function that is inherited", "A function that cannot be overridden", "A function with no return value"], answer: "A function that can be overridden" },
-        { question: "7. What is the TCP protocol used for?", choices: ["Ensuring reliable communication", "Encrypting data", "Compressing data", "Opening connections"], answer: "Ensuring reliable communication" },
-        { question: "8. What is an abstract class?", choices: ["A class that cannot be instantiated", "A class that is hidden", "A class without methods", "A class with only static methods"], answer: "A class that cannot be instantiated" },
-        { question: "9. What does CPU stand for?", choices: ["Central Processing Unit", "Computer Processing Unit", "Core Processing Unit", "Centralized Processing Unit"], answer: "Central Processing Unit" },
-        { question: "10. What does SQL stand for?", choices: ["Structured Query Language", "Sequential Query Language", "Secure Query Language", "Server Query Language"], answer: "Structured Query Language" }
+        { question: "6. What is the time complexity of binary search?", choices: ["O(n)", "O(log n)", "O(n^2)"], answer: "O(log n)", type: "mcq" },
+        { question: "7. In C++, what is a pointer?", choices: ["a variable that stores a memory address", "a data type", "a function"], answer: "a variable that stores a memory address", type: "mcq" },
+        { question: "8. What does API stand for?", choices: ["Application Programming Interface", "Application Program Integration"], answer: "Application Programming Interface", type: "mcq" },
+        { question: "9. Which of the following is a cloud computing service?", choices: ["IaaS", "PaaS", "SaaS", "All of the above"], answer: "All of the above", type: "mcq" },
+        { question: "10. What is the main function in a C program?", choices: ["start", "begin", "main"], answer: "main", type: "mcq" }
     ],
     hard: [
-        { question: "1. What is the difference between == and === in JavaScript?", choices: ["== compares values, === compares values and types", "== compares types, === compares references", "== compares objects, === compares arrays", "== compares functions, === compares strings"], answer: "== compares values, === compares values and types" },
-        { question: "2. What is memory segmentation?", choices: ["Dividing memory into sections", "Memory allocation for heap", "Memory allocation for stack", "Fragmentation control"], answer: "Dividing memory into sections" },
-        { question: "3. Explain the concept of deadlock prevention.", choices: ["A method to avoid deadlock situations", "A method to break the loop", "Prevent processes from running", "Kill tasks in case of conflict"], answer: "A method to avoid deadlock situations" },
-        { question: "4. What is the difference between TCP and UDP?", choices: ["TCP is reliable, UDP is not", "TCP is faster, UDP is slower", "UDP is reliable, TCP is not", "UDP is connection-oriented, TCP is not"], answer: "TCP is reliable, UDP is not" },
-        { question: "5. Explain the difference between multithreading and multiprocessing.", choices: ["Multithreading is within a process, multiprocessing involves multiple processes", "Both are the same", "Multithreading is for multi-core CPUs", "Multiprocessing is for single-core CPUs"], answer: "Multithreading is within a process, multiprocessing involves multiple processes" }
+        { question: "11. In Java, what is the difference between == and equals()?", choices: ["== checks reference, equals() checks value", "No difference", "equals() checks reference, == checks value"], answer: "== checks reference, equals() checks value", type: "mcq" },
+        { question: "12. Explain the concept of encapsulation.", choices: ["hiding data and methods within a class", "public data access", "data abstraction"], answer: "hiding data and methods within a class", type: "mcq" },
+        { question: "13. What is the purpose of the virtual keyword in C++?", choices: ["to allow method overriding", "to make a method static", "to create an instance"], answer: "to allow method overriding", type: "mcq" },
+        { question: "14. In data structures, what is a binary tree?", choices: ["a tree where each node has at most two children", "a circular list", "a type of stack"], answer: "a tree where each node has at most two children", type: "mcq" },
+        { question: "15. What is a deadlock in operating systems?", choices: ["a situation where two processes wait indefinitely", "a high CPU usage", "a fast processing issue"], answer: "a situation where two processes wait indefinitely", type: "mcq" }
     ]
 };
 
-// Track the current level and score
-let currentLevel = 0;
-let totalScore = 0;
+let currentLevel = 0; // Start at the first level
+let previousScore = 0; // Initialize previous score
+let userId = '';
+let branch = '';
 
-function login() {
-    const username = document.getElementById('username').value;
-    if (username) {
-        localStorage.setItem('currentUser', username);
-        document.getElementById('userDisplayName').innerText = username;
-        document.getElementById('login').style.display = 'none';
-        document.getElementById('quiz-section').style.display = 'block';
-        loadQuestions();
+// Shuffle questions for random selection
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
     }
 }
 
-function loadQuestions() {
-    const questionContainer = document.getElementById('questions');
-    questionContainer.innerHTML = ''; // Clear previous questions
-    let questionSet;
+// Load quiz questions based on level
+function loadQuestions(level) {
+    let allQuestions = [];
 
-    if (currentLevel === 0) {
-        questionSet = questions.easy.slice(0, 10); // First level (easy questions)
-    } else if (currentLevel === 1) {
-        questionSet = questions.medium.slice(0, 10); // Second level (medium questions)
-    } else if (currentLevel === 2) {
-        questionSet = questions.hard.slice(0, 5); // Final level (hard questions)
+    if (level === 0) {
+        allQuestions = [...questions.easy];
+    } else if (level === 1) {
+        allQuestions = [...questions.medium];
+    } else if (level === 2) {
+        allQuestions = [...questions.hard];
     }
 
-    questionSet.forEach((q, index) => {
-        const label = document.createElement('label');
-        label.innerHTML = q.question;
-        questionContainer.appendChild(label);
+    shuffle(allQuestions); // Shuffle questions for random order
+    displayQuestions(allQuestions);
+}
 
-        q.choices.forEach(choice => {
-            const choiceLabel = document.createElement('label');
-            const input = document.createElement('input');
-            input.type = 'radio';
-            input.name = 'q' + index;
-            input.value = choice;
-            choiceLabel.appendChild(input);
-            choiceLabel.appendChild(document.createTextNode(choice));
-            questionContainer.appendChild(choiceLabel);
-            questionContainer.appendChild(document.createElement('br'));
-        });
+// Display questions on the page
+function displayQuestions(allQuestions) {
+    const questionsDiv = document.getElementById("questions");
+    questionsDiv.innerHTML = ""; // Clear previous questions
+
+    allQuestions.forEach((q, index) => {
+        const questionHTML = `
+            <label>${q.question}</label>
+            ${q.choices.map((choice) => `
+                <label>
+                    <input type="radio" name="q${index}" value="${choice}">
+                    ${choice}
+                </label>
+            `).join("")}
+        `;
+        questionsDiv.innerHTML += questionHTML;
     });
+
+    document.getElementById("level-title").innerText = `Level: ${currentLevel + 1}`;
 }
 
-function checkAnswers() {
-    let score = 0;
-    const totalQuestions = currentLevel === 2 ? 5 : 10;
-    const questionSet = currentLevel === 0 ? questions.easy : currentLevel === 1 ? questions.medium : questions.hard;
+// Start the quiz after login
+function startQuiz() {
+    userId = document.getElementById("userId").value;
+    const password = document.getElementById("password").value;
+    branch = document.getElementById("branch").value;
 
-    for (let i = 0; i < totalQuestions; i++) {
-        const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
-        if (selectedOption && selectedOption.value === questionSet[i].answer) {
+    if (userId && password && branch) {
+        document.getElementById("login").style.display = "none"; // Hide login
+        document.getElementById("quiz-section").style.display = "block"; // Show quiz
+        loadQuestions(currentLevel); // Load questions for the first level
+    } else {
+        alert("Please fill in all fields.");
+    }
+}
+
+// Check answers and calculate score
+function checkAnswers() {
+    const questionsDiv = document.getElementById("questions");
+    const allQuestions = questions[currentLevel === 0 ? "easy" : currentLevel === 1 ? "medium" : "hard"];
+    let score = 0;
+
+    allQuestions.forEach((q, index) => {
+        const selected = questionsDiv.querySelector(`input[name="q${index}"]:checked`);
+        if (selected && selected.value === q.answer) {
             score++;
         }
-    }
+    });
 
-    totalScore += score;
+    // Display the score
+    previousScore = score; // Store the score for the next level
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = `Your Score: ${score}/${allQuestions.length}`;
+    document.getElementById("previous-score").innerHTML = `Previous Score: ${previousScore}`;
+    document.getElementById("previous-score").style.display = "block";
 
-    // Check if user moves to next level or finish
-    if (currentLevel === 2) {
-        displayFinalScore();
+    currentLevel++; // Move to the next level
+    if (currentLevel < 3) {
+        loadQuestions(currentLevel); // Load next level questions
     } else {
-        currentLevel++;
-        loadQuestions();
+        alert("Quiz completed!");
+        refreshPage(); // Reset for the next user
     }
 }
 
-function displayFinalScore() {
-    const username = localStorage.getItem('currentUser');
-    localStorage.setItem(username + '_score', totalScore);
-
-    let feedbackMessage;
-    if (totalScore === 25) {
-        feedbackMessage = "Outstanding! You are a true programming expert!";
-    } else if (totalScore >= 18) {
-        feedbackMessage = "Great job! You have an excellent understanding of programming.";
-    } else if (totalScore >= 12) {
-        feedbackMessage = "Good effort! Keep practicing and you'll get even better.";
-    } else {
-        feedbackMessage = "Keep practicing, you'll improve with time!";
-    }
-
-    document.getElementById('result').textContent = "Final score: " + totalScore + "/25. " + feedbackMessage;
-    document.getElementById('questions').style.display = 'none'; // Hide questions after final level
+// Refresh the page to restart the quiz
+function refreshPage() {
+    currentLevel = 0; // Reset to first level
+    previousScore = 0; // Reset previous score
+    document.getElementById("login").style.display = "block"; // Show login
+    document.getElementById("quiz-section").style.display = "none"; // Hide quiz section
+    document.getElementById("result").innerHTML = ""; // Clear result
+    document.getElementById("previous-score").style.display = "none"; // Hide previous score
+    document.getElementById("questions").innerHTML = ""; // Clear questions
+    document.getElementById("userId").value = ""; // Clear input fields
+    document.getElementById("password").value = "";
+    document.getElementById("branch").value = ""; // Clear branch selection
 }
