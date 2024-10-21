@@ -9,30 +9,51 @@
 <body>
     <div class="container">
         <h1>Programming Quiz</h1>
-        <div id="login">
+        <div id="login" class="login-form">
             <h2>Login</h2>
-            <input type="text" id="userId" placeholder="Enter User ID" required>
-            <input type="password" id="password" placeholder="Enter Password" required>
+            <label for="userId">User ID:</label>
+            <input type="text" id="userId" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <label for="branch">Branch:</label>
             <select id="branch">
-                <option value="">Select Your Branch</option>
-                <option value="Computer Science">Computer Science</option>
-                <option value="Information Technology">Information Technology</option>
-                <option value="Software Engineering">Software Engineering</option>
+                <option value="normal">Normal Student</option>
+                <option value="cs">Computer Science</option>
+                <option value="it">Information Technology</option>
+                <option value="se">Software Engineering</option>
             </select>
             <button onclick="startQuiz()">Start Quiz</button>
+            <div id="constraints">
+                <p>Constraints:</p>
+                <ul>
+                    <li>User ID must be at least 4 characters long.</li>
+                    <li>Password must be at least 6 characters long.</li>
+                </ul>
+            </div>
         </div>
 
-        <div id="quiz-section" style="display: none;">
-            <h2 id="level-title"></h2>
+        <div id="quiz-section" class="quiz-section" style="display: none;">
+            <h2 id="level-title">Level: 1</h2>
             <div id="questions"></div>
             <button onclick="checkAnswers()">Submit Answers</button>
-            <button onclick="refreshPage()">Refresh Questions</button>
+            <button onclick="refreshPage()">Restart Quiz</button>
             <div id="result"></div>
             <div id="previous-score" style="display: none;"></div>
         </div>
+
+        <div id="game-info" style="display: none;">
+            <h2>Game Information</h2>
+            <p>Welcome to the Programming Quiz! Test your knowledge in programming concepts and enhance your skills.</p>
+            <h3>Rules:</h3>
+            <ul>
+                <li>Each level consists of 10 questions, except the last level which has 5 questions.</li>
+                <li>Choose the correct answer from the given options.</li>
+                <li>Your score will be displayed at the end of the quiz.</li>
+                <li>Good luck and have fun!</li>
+            </ul>
+            <button onclick="goBackToLogin()">Back to Login</button>
+        </div>
     </div>
-    
     <script src="script.js"></script>
 </body>
 </html>
-
