@@ -17,14 +17,19 @@ const questions = {
         { question: "12. Explain the concept of encapsulation.", answer: "hiding data and methods within a class", type: "one-word" },
         { question: "13. What is the purpose of the virtual keyword in C++?", answer: "to allow method overriding", type: "one-word" },
         { question: "14. In data structures, what is a binary tree?", answer: "a tree where each node has at most two children", type: "one-word" },
-        { question: "15. What is a deadlock in operating systems?", answer: "a situation where two or more processes are blocked forever", type: "one-word" }
+        { question: "15. What is a deadlock in operating systems?", answer: "a situation where two or more processes are blocked forever", type: "one-word" },
+        { question: "16. What is the time complexity of the bubble sort algorithm?", answer: "O(n^2)", type: "one-word" },
+        { question: "17. What is the main advantage of using linked lists over arrays?", answer: "dynamic size", type: "one-word" },
+        { question: "18. In Java, what is garbage collection?", answer: "automatic memory management", type: "one-word" },
+        { question: "19. What is the difference between TCP and UDP?", answer: "TCP is connection-oriented, UDP is connectionless", type: "one-word" },
+        { question: "20. What is an abstract class in Java?", answer: "a class that cannot be instantiated", type: "one-word" }
     ],
     hard: [
-        { question: "16. What is the time complexity of quicksort?", answer: "O(n log n)", type: "one-word" },
-        { question: "17. What is a race condition?", answer: "a situation where two threads access shared data at the same time", type: "one-word" },
-        { question: "18. What is the difference between a process and a thread?", answer: "a process is an independent program, while a thread is a smaller unit of a process", type: "one-word" },
-        { question: "19. What is polymorphism in OOP?", answer: "the ability to present the same interface for different data types", type: "one-word" },
-        { question: "20. What is a stack overflow?", answer: "when a stack pointer exceeds the stack bound", type: "one-word" }
+        { question: "21. What is the time complexity of quicksort?", answer: "O(n log n)", type: "one-word" },
+        { question: "22. What is a race condition?", answer: "a situation where two threads access shared data at the same time", type: "one-word" },
+        { question: "23. What is the difference between a process and a thread?", answer: "a process is an independent program, while a thread is a smaller unit of a process", type: "one-word" },
+        { question: "24. What is polymorphism in OOP?", answer: "the ability to present the same interface for different data types", type: "one-word" },
+        { question: "25. What is a stack overflow?", answer: "when a stack pointer exceeds the stack bound", type: "one-word" }
     ]
 };
 
@@ -94,7 +99,7 @@ function checkAnswers() {
     let levelScore = 0;
 
     for (let i = 0; i < totalQuestions; i++) {
-        let question = questions.easy.concat(questions.medium, questions.hard)[i + currentLevel * 10];
+        let question = questions.easy.concat(questions.medium, questions.hard)[i + currentLevel * (currentLevel === 2 ? 5 : 10)];
 
         if (question.type === 'mcq') {
             const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
@@ -114,8 +119,9 @@ function checkAnswers() {
 
     let feedbackMessage = "";
     if (currentLevel === 2) {
-        feedbackMessage = `Your total score: ${totalScore}. Great job!`;
-        feedbackMessage += ` You scored ${scores.easy} in Easy, ${scores.medium} in Medium, and ${scores.hard} in Hard.`;
+        feedbackMessage = `Your total score: ${totalScore}. `;
+        feedbackMessage += `You scored ${scores.easy} in Easy, ${scores.medium} in Medium, and ${scores.hard} in Hard. `;
+        feedbackMessage += getAppreciation(totalScore);
         feedbackMessage += " Do you want to restart the quiz?";
         document.getElementById('previous-score').textContent = feedbackMessage;
         document.getElementById('previous-score').style.display = 'block';
@@ -130,34 +136,26 @@ function checkAnswers() {
     loadQuestions(); // Load questions for the next level
 }
 
-// Refresh page and load new questions
-function refreshPage() {
-    loadQuestions();
-}
-
-// Start quiz
-function startQuiz() {
-    const userId = document.getElementById('userId').value;
-    const password = document.getElementById('password').value;
-    const branch = document.getElementById('branch').value;
-
-    if (userId.length < 4 || password.length < 6 || branch === "") {
-        alert("Please enter valid User ID (min 4 characters), Password (min 6 characters), and select your branch.");
-        return;
+// Get appreciation based on total score
+function getAppreciation(score) {
+    if (score === 25) {
+        return "Outstanding performance! You're a programming genius!";
+    } else if (score >= 20) {
+        return "Great job! You have a solid understanding of programming.";
+    } else if (score >= 15) {
+        return "Good effort! You have a good grasp of the concepts.";
+    } else {
+        return "Keep trying! Practice makes perfect!";
     }
-
-    document.getElementById('login').style.display = 'none';
-    document.getElementById('quiz-section').style.display = 'block';
-    loadQuestions(); // Load first level questions
 }
 
-// Go back to login
-function goBackToLogin() {
-    document.getElementById('login').style.display = 'block';
-    document.getElementById('quiz-section').style.display = 'none';
+// Restart the quiz
+function restartQuiz() {
     currentLevel = 0; // Reset level
-    totalScore = 0; // Reset total score
     scores = { easy: 0, medium: 0, hard: 0 }; // Reset level scores
+    totalScore = 0; // Reset total score
+    document.getElementById('previous-score').style.display = 'none';
+    loadQuestions(); // Load first level questions
 }
 
 // Show game info
@@ -166,3 +164,5 @@ function showGameInfo() {
     document.getElementById('login').style.display = 'none';
 }
 
+// Initialize the quiz
+loadQuestions(); // Load first level questions
