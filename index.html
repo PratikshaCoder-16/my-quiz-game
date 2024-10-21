@@ -8,10 +8,22 @@
 </head>
 <body>
     <h1>Programming Quiz</h1>
-    <div id="questions"></div>
-    <button onclick="checkAnswers()">Submit Answers</button>
-    <button onclick="refreshPage()">Refresh Questions</button>
-    <div id="result"></div>
+
+    <!-- Login form -->
+    <div id="login">
+        <label for="username">Enter your username to start the quiz:</label>
+        <input type="text" id="username" placeholder="Enter username" required>
+        <button onclick="login()">Login</button>
+    </div>
+
+    <!-- Quiz section (initially hidden) -->
+    <div id="quiz-section" style="display: none;">
+        <h2>Welcome, <span id="userDisplayName"></span>!</h2>
+        <div id="questions"></div>
+        <button onclick="checkAnswers()">Submit Answers</button>
+        <div id="result"></div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
