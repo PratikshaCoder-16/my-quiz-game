@@ -37,6 +37,7 @@ let currentLevel = 0; // Start at the first level
 let previousTotalScore = 0; // Initialize previous total score
 let userId = '';
 let branch = '';
+let levelScores = [0, 0, 0]; // Array to store scores for each level
 
 // Shuffle questions for random selection
 function shuffle(array) {
@@ -116,6 +117,9 @@ function checkAnswers() {
         }
     });
 
+    // Store the score for the current level
+    levelScores[currentLevel] = score;
+
     // Display the score for the current level
     const resultDiv = document.getElementById("result");
     resultDiv.innerHTML = `Your Score for Level ${currentLevel + 1}: ${score}/${allQuestions.length}`;
@@ -124,10 +128,10 @@ function checkAnswers() {
 
     // If current level is the last one, show final message
     if (currentLevel === 2) {
+        resultDiv.innerHTML += `<br>Your Total Score: ${previousTotalScore}`;
         const motivationalMessage = getMotivationalMessage(previousTotalScore);
-        resultDiv.innerHTML += `<br>Your Total Score: ${previousTotalScore}<br>${motivationalMessage}`;
-        alert("Quiz completed!");
-        document.getElementById("quiz-section").style.display = "none"; // Hide quiz section
+        resultDiv.innerHTML += `<br>${motivationalMessage}`;
+        showFinalOptions();
     } else {
         currentLevel++; // Move to the next level
         loadQuestions(currentLevel); // Load next level questions
@@ -151,10 +155,17 @@ function getMotivationalMessage(score) {
     }
 }
 
+// Show final options after completing all levels
+function showFinalOptions() {
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML += `<br><button onclick="refreshPage()">Restart Game</button> <button onclick="closeGame()">Close Game</button>`;
+}
+
 // Refresh the page to restart the quiz
 function refreshPage() {
     currentLevel = 0; // Reset to first level
     previousTotalScore = 0; // Reset previous total score
+    levelScores = [0, 0, 0]; // Reset level scores
     document.getElementById("login").style.display = "block"; // Show login
     document.getElementById("quiz-section").style.display = "none"; // Hide quiz section
     document.getElementById("result").innerHTML = ""; // Clear result
@@ -163,6 +174,17 @@ function refreshPage() {
     document.getElementById("userId").value = ""; // Clear input fields
     document.getElementById("password").value = "";
     document.getElementById("branch").value = ""; // Clear branch selection
+}
+
+// Close the game and go back to login
+function closeGame() {
+    document.getElementById("login").style.display = "block"; // Show login
+    document.getElementById("quiz-section").style.display = "none"; // Hide quiz section
+    document.getElementById("result").innerHTML = ""; // Clear result
+    document.getElementById("previous-score").style.display = "none"; // Hide previous score
+    document.getElementById("questions").innerHTML = ""; // Clear questions
+    previousTotalScore = 0; // Reset previous total score
+    levelScores = [0, 0, 0]; // Reset level scores
 }
 
 // Go back to login from game info
