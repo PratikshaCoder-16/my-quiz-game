@@ -7,36 +7,46 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="login-section">
-        <h1>Welcome to the Programming Quiz</h1>
-        <form id="login-form" onsubmit="return login();">
-            <div>
-                <label for="username">Username:</label>
-                <input type="text" id="username" required>
-            </div>
-            <div>
-                <label for="password">Password:</label>
-                <input type="password" id="password" required>
-                <small>Password must be at least 6 characters long.</small>
-            </div>
-            <button type="submit">Login</button>
-        </form>
-        <div id="login-error" class="error-message" style="display:none;">Invalid credentials. Please try again.</div>
-    </div>
+    <div id="container">
+        <div id="login">
+            <h1>Welcome to the Programming Quiz</h1>
+            <input type="text" id="userId" placeholder="User ID" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <select id="branch">
+                <option value="">Select Your Branch</option>
+                <option value="CS">Computer Science</option>
+                <option value="IT">Information Technology</option>
+                <option value="Normal">Normal Student</option>
+            </select>
+            <button onclick="startQuiz()">Start Quiz</button>
+            <p class="constraints">* User ID must be at least 4 characters long.<br>
+            * Password must be at least 6 characters long.</p>
+            <button onclick="showGameInfo()">Game Info & Rules</button>
+        </div>
 
-    <div id="game-info" style="display:none;">
-        <h2>Game Information</h2>
-        <p>Welcome to the Programming Quiz! Test your knowledge with three levels of questions: Easy, Medium, and Hard.</p>
-        <p>Each question is worth 1 point. After completing all levels, you will receive your total score and some appreciation based on your performance!</p>
-        <button onclick="startGame()">Start Quiz</button>
-    </div>
+        <div id="quiz-section" style="display:none;">
+            <h1 id="level-title">Level: 1</h1>
+            <div id="questions"></div>
+            <button onclick="checkAnswers()">Submit Answers</button>
+            <button onclick="refreshPage()">Refresh Questions</button>
+            <div id="result"></div>
+            <div id="previous-score" style="display:none;"></div>
+        </div>
 
-    <div id="quiz-section" style="display:none;">
-        <h2 id="level-title">Level: Easy</h2>
-        <div id="questions"></div>
-        <button onclick="checkAnswers()">Submit Answers</button>
-        <button onclick="restartQuiz()">Restart Quiz</button>
-        <div id="previous-score" style="display:none;"></div>
+        <div id="game-info" style="display:none;">
+            <h1>Game Information & Rules</h1>
+            <p>The Programming Quiz consists of three levels of questions. Each level has 10 questions, with the final level containing 5 harder questions.</p>
+            <h3>How to Play:</h3>
+            <ol>
+                <li>Login with a valid User ID and Password.</li>
+                <li>Select your branch.</li>
+                <li>Answer the questions in each level.</li>
+                <li>Your score will be displayed after each level.</li>
+                <li>At the end of the quiz, your total score will be shown along with motivational feedback.</li>
+                <li>You can choose to restart or close the game after finishing.</li>
+            </ol>
+            <button onclick="goBackToLogin()">Back to Login</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
