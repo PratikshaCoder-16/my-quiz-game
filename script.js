@@ -1,3 +1,4 @@
+
 const questions = {
     easy: [
         { question: "1. What is the keyword used to define a class in Java?", choices: ["class", "def", "function"], answer: "class", type: "mcq" },
@@ -33,7 +34,7 @@ const questions = {
 };
 
 let currentLevel = 0; // Start at the first level
-let previousScore = 0; // Initialize previous score
+let previousTotalScore = 0; // Initialize previous total score
 let userId = '';
 let branch = '';
 
@@ -115,24 +116,29 @@ function checkAnswers() {
         }
     });
 
-    // Display the score
-    previousScore += score; // Add to previous score
-    const motivationalMessage = getMotivationalMessage(previousScore);
+    // Display the score for the current level
     const resultDiv = document.getElementById("result");
-    resultDiv.innerHTML = `Your Score: ${score}/${allQuestions.length}<br>${motivationalMessage}`;
-    document.getElementById("previous-score").innerHTML = `Previous Score: ${previousScore}`;
-    document.getElementById("previous-score").style.display = "block";
+    resultDiv.innerHTML = `Your Score for Level ${currentLevel + 1}: ${score}/${allQuestions.length}`;
 
-    currentLevel++; // Move to the next level
-    if (currentLevel < 3) {
-        loadQuestions(currentLevel); // Load next level questions
-    } else {
+    previousTotalScore += score; // Update previous total score
+
+    // If current level is the last one, show final message
+    if (currentLevel === 2) {
+        const motivationalMessage = getMotivationalMessage(previousTotalScore);
+        resultDiv.innerHTML += `<br>Your Total Score: ${previousTotalScore}<br>${motivationalMessage}`;
         alert("Quiz completed!");
         document.getElementById("quiz-section").style.display = "none"; // Hide quiz section
+    } else {
+        currentLevel++; // Move to the next level
+        loadQuestions(currentLevel); // Load next level questions
     }
+
+    // Show previous total score
+    document.getElementById("previous-score").innerHTML = `Previous Total Score: ${previousTotalScore}`;
+    document.getElementById("previous-score").style.display = "block";
 }
 
-// Get a motivational message based on the score
+// Get a motivational message based on the total score
 function getMotivationalMessage(score) {
     if (score === 30) {
         return "Excellent! You're a programming wizard!";
@@ -148,7 +154,7 @@ function getMotivationalMessage(score) {
 // Refresh the page to restart the quiz
 function refreshPage() {
     currentLevel = 0; // Reset to first level
-    previousScore = 0; // Reset previous score
+    previousTotalScore = 0; // Reset previous total score
     document.getElementById("login").style.display = "block"; // Show login
     document.getElementById("quiz-section").style.display = "none"; // Hide quiz section
     document.getElementById("result").innerHTML = ""; // Clear result
