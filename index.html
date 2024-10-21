@@ -7,23 +7,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Programming Quiz</h1>
+    <div class="container">
+        <h1>Programming Quiz</h1>
+        <div id="login">
+            <h2>Login</h2>
+            <input type="text" id="userId" placeholder="Enter User ID" required>
+            <input type="password" id="password" placeholder="Enter Password" required>
+            <select id="branch">
+                <option value="">Select Your Branch</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Software Engineering">Software Engineering</option>
+            </select>
+            <button onclick="startQuiz()">Start Quiz</button>
+        </div>
 
-    <!-- Login form -->
-    <div id="login">
-        <label for="username">Enter your username to start the quiz:</label>
-        <input type="text" id="username" placeholder="Enter username" required>
-        <button onclick="login()">Login</button>
+        <div id="quiz-section" style="display: none;">
+            <h2 id="level-title"></h2>
+            <div id="questions"></div>
+            <button onclick="checkAnswers()">Submit Answers</button>
+            <button onclick="refreshPage()">Refresh Questions</button>
+            <div id="result"></div>
+            <div id="previous-score" style="display: none;"></div>
+        </div>
     </div>
-
-    <!-- Quiz section (initially hidden) -->
-    <div id="quiz-section" style="display: none;">
-        <h2>Welcome, <span id="userDisplayName"></span>!</h2>
-        <div id="questions"></div>
-        <button onclick="checkAnswers()">Submit Answers</button>
-        <div id="result"></div>
-    </div>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
+
